@@ -81,6 +81,9 @@ document.addEventListener("DOMContentLoaded", function () {
   document
     .getElementById("statusFilter")
     .addEventListener("change", filterTable);
+  document
+    .getElementById("impactFilter")
+    .addEventListener("change", filterTable);
 
   // Attach sorting to headers
   let headers = table.getElementsByTagName("th");

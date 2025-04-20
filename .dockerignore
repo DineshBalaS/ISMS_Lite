@@ -1,0 +1,12 @@
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+*.db
+.env
+venv/
+*.rar
+.git
+.gitignore
+migrations/
+back_builds/
