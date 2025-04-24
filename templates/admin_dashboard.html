@@ -70,6 +70,7 @@
               <th class="py-3 px-4 border-b">Owner ID</th>
               <th class="py-3 px-4 border-b">Created At</th>
               <th class="py-3 px-4 border-b">Status</th>
+              <th class="py-3 px-4 border-b">Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -97,6 +98,9 @@
               >
                 {{ risk.status }}
               </td>
+              <td class="py-2 px-4">
+                <a href="{{ url_for('treat_risk', risk_id=risk.id) }}" class="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded text-sm">Treat</a>
+              </td>              
             </tr>
             {% endfor %}
           </tbody>

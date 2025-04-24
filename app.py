@@ -125,6 +125,25 @@ def admin_dashboard():
     risks_over_time_data=list(risks_over_time.values())
 )
 
+@app.route('/admin/risk/<int:risk_id>/treat', methods=['GET', 'POST'])
+@login_required
+def treat_risk(risk_id):
+    if not current_user.is_admin:
+        flash("Access denied: Admins only.", "danger")
+        return redirect(url_for("dashboard"))
+
+    risk = Risk.query.get_or_404(risk_id)
+
+    if request.method == 'POST':
+        risk.treatment_plan = request.form['treatment_plan']
+        risk.status = request.form['status']
+        db.session.commit()
+        flash('Treatment plan updated successfully.', 'success')
+        return redirect(url_for('admin_dashboard'))
+
+    return render_template('treat_risk.html', risk=risk)
+
+
 
 @app.route('/add_risk', methods = ['GET','POST'])
 @login_required

@@ -29,6 +29,8 @@ class Risk(db.Model):
     updated_at = db.Column(db.DateTime, default = datetime.utcnow, onupdate = datetime.utcnow)
 
     status = db.Column(db.String(20), nullable=False, default="Open")
+    treatment_plan = db.Column(db.Text, nullable=True)
+
 
     @property
     def risk_score(self):
