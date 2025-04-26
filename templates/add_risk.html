@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -97,4 +97,89 @@
       </form>
     </div>
   </body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Risk</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+
+  <body class="bg-[#2C2F33] text-white min-h-screen flex items-center justify-center p-6">
+    <div class="w-full max-w-2xl bg-[#23272A] border border-gray-700 rounded-2xl shadow-lg p-8 sm:p-10">
+      <div class="text-center mb-6">
+        <h2 class="text-3xl font-bold text-white">Add a New Risk 🛡️</h2>
+        <p class="text-sm text-gray-400 mt-2">Fill in the details to register a new risk</p>
+      </div>
+
+      <form method="POST" class="space-y-6">
+        <div>
+          <label for="title" class="block text-sm font-medium text-gray-300 mb-1">Title</label>
+          <input
+            type="text"
+            name="title"
+            required
+            class="w-full bg-gray-800 border border-gray-600 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none text-white"
+          />
+        </div>
+
+        <div>
+          <label for="description" class="block text-sm font-medium text-gray-300 mb-1">Description</label>
+          <textarea
+            name="description"
+            required
+            rows="4"
+            class="w-full bg-gray-800 border border-gray-600 rounded-lg px-4 py-2 resize-none focus:ring-2 focus:ring-blue-500 focus:outline-none text-white"
+          ></textarea>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div>
+            <label for="impact" class="block text-sm font-medium text-gray-300 mb-1">Impact</label>
+            <select
+              name="impact"
+              required
+              class="w-full bg-gray-800 border border-gray-600 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none text-white"
+            >
+              <option value="1">Low (1)</option>
+              <option value="2">Medium (2)</option>
+              <option value="3">High (3)</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="likelihood" class="block text-sm font-medium text-gray-300 mb-1">Likelihood</label>
+            <select
+              name="likelihood"
+              required
+              class="w-full bg-gray-800 border border-gray-600 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none text-white"
+            >
+              <option value="1">Rare (1)</option>
+              <option value="2">Possible (2)</option>
+              <option value="3">Likely (3)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="flex justify-between items-center pt-6">
+          <button
+            type="submit"
+            class="bg-blue-600 hover:bg-blue-500 text-white font-semibold px-6 py-2 rounded-lg transition shadow"
+          >
+            ➕ Add Risk
+          </button>
+          <a
+            href="{{ url_for('dashboard') }}"
+            class="text-gray-400 hover:text-white font-medium underline underline-offset-4 transition"
+          >
+            ← Back to Dashboard
+          </a>
+        </div>
+      </form>
+    </div>
+  </body>
 </html>
+
