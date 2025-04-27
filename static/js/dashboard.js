@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function sortTable(n) {
     let tbody = table.getElementsByTagName("tbody")[0];
-    let rows = Array.from(tbody.getElementsByTagName("tr"));
+    let rows = table.getElementsByTagName("tr");
 
     // Store original `data-impact` values in an array
     let dataImpactValues = rows.map((row) => row.cells[2].dataset.impact);

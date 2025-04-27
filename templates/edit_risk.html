@@ -1,55 +1,75 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Edit Risk</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gradient-to-br from-blue-50 to-white min-h-screen flex items-center justify-center px-4">
-  <div class="w-full max-w-2xl bg-white rounded-2xl shadow-xl p-8 sm:p-10 border border-gray-200">
-    <div class="text-center mb-6">
-      <h2 class="text-3xl font-extrabold text-gray-900">Edit Risk ✍️</h2>
-      <p class="text-sm text-gray-500 mt-1">Make changes to this risk entry</p>
+<body class="bg-[#161B22] text-[#C9D1D9] min-h-screen flex items-center justify-center px-4">
+  <div class="w-full max-w-2xl bg-[#0D1117] border border-gray-700 rounded-2xl shadow-lg p-8 sm:p-10">
+    <div class="text-center mb-8">
+      <h2 class="text-3xl font-bold text-white">✍️ Edit Risk</h2>
+      <p class="text-sm text-gray-400 mt-2">Modify the risk details below</p>
     </div>
 
     <form method="POST" class="space-y-6">
       <div>
-        <label for="title" class="block text-sm font-medium text-gray-700">Title</label>
-        <input type="text" name="title" value="{{ risk.title }}" required
-               class="mt-1 w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition" />
+        <label for="title" class="block text-sm font-medium text-gray-300 mb-1">Title</label>
+        <input 
+          type="text" 
+          name="title" 
+          value="{{ risk.title }}" 
+          required
+          class="w-full bg-gray-800 border border-gray-600 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none text-white"
+        />
       </div>
 
       <div>
-        <label for="description" class="block text-sm font-medium text-gray-700">Description</label>
-        <textarea name="description" required rows="4"
-                  class="mt-1 w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm resize-none focus:outline-none focus:ring-2 focus:ring-blue-500 transition">{{ risk.description }}</textarea>
+        <label for="description" class="block text-sm font-medium text-gray-300 mb-1">Description</label>
+        <textarea 
+          name="description" 
+          required 
+          rows="4"
+          class="w-full bg-gray-800 border border-gray-600 rounded-lg px-4 py-2 resize-none focus:ring-2 focus:ring-blue-500 focus:outline-none text-white"
+        >{{ risk.description }}</textarea>
       </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
         <div>
-          <label for="impact" class="block text-sm font-medium text-gray-700">Impact</label>
-          <select name="impact" required
-                  class="mt-1 w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition">
-            <option value="1" {% if risk.impact == 1 %}selected{% endif %}>1 – Low</option>
-            <option value="2" {% if risk.impact == 2 %}selected{% endif %}>2 – Medium</option>
-            <option value="3" {% if risk.impact == 3 %}selected{% endif %}>3 – High</option>
+          <label for="impact" class="block text-sm font-medium text-gray-300 mb-1">Impact</label>
+          <select 
+            name="impact" 
+            required
+            class="w-full bg-gray-800 border border-gray-600 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none text-white"
+          >
+            <option value="1" {% if risk.impact == 1 %}selected{% endif %}>Low (1)</option>
+            <option value="2" {% if risk.impact == 2 %}selected{% endif %}>Medium (2)</option>
+            <option value="3" {% if risk.impact == 3 %}selected{% endif %}>High (3)</option>
           </select>
         </div>
 
         <div>
-          <label for="likelihood" class="block text-sm font-medium text-gray-700">Likelihood</label>
-          <select name="likelihood" required
-                  class="mt-1 w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition">
-            <option value="1" {% if risk.likelihood == 1 %}selected{% endif %}>1 – Low</option>
-            <option value="2" {% if risk.likelihood == 2 %}selected{% endif %}>2 – Medium</option>
-            <option value="3" {% if risk.likelihood == 3 %}selected{% endif %}>3 – High</option>
+          <label for="likelihood" class="block text-sm font-medium text-gray-300 mb-1">Likelihood</label>
+          <select 
+            name="likelihood" 
+            required
+            class="w-full bg-gray-800 border border-gray-600 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none text-white"
+          >
+            <option value="1" {% if risk.likelihood == 1 %}selected{% endif %}>Rare (1)</option>
+            <option value="2" {% if risk.likelihood == 2 %}selected{% endif %}>Possible (2)</option>
+            <option value="3" {% if risk.likelihood == 3 %}selected{% endif %}>Likely (3)</option>
           </select>
         </div>
-        <!-- Status Dropdown -->
-        <div class="mb-4">
-          <label for="status" class="block mb-2 text-sm font-medium text-gray-700">Status</label>
-          <select id="status" name="status" class="form-select mt-1 block w-full border rounded">
+
+        <div>
+          <label for="status" class="block text-sm font-medium text-gray-300 mb-1">Status</label>
+          <select 
+            id="status" 
+            name="status" 
+            required
+            class="w-full bg-gray-800 border border-gray-600 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none text-white"
+          >
             <option value="Open" {% if risk.status == 'Open' %}selected{% endif %}>Open</option>
             <option value="In Progress" {% if risk.status == 'In Progress' %}selected{% endif %}>In Progress</option>
             <option value="Mitigated" {% if risk.status == 'Mitigated' %}selected{% endif %}>Mitigated</option>
@@ -58,14 +78,14 @@
         </div>
       </div>
 
-      <div class="flex justify-between items-center pt-4">
+      <div class="flex justify-between items-center pt-6">
         <button type="submit"
-                class="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-lg font-semibold transition">
-          Update
+                class="bg-green-600 hover:bg-green-500 text-white font-semibold px-6 py-2 rounded-lg transition shadow">
+          ✅ Update Risk
         </button>
-        <a href="{{ url_for('dashboard') }}"
-           class="text-gray-600 hover:text-gray-800 font-medium underline underline-offset-4">
-          Cancel
+        <a href="{{ url_for('dashboard') }}" 
+           class="text-gray-400 hover:text-white font-medium underline underline-offset-4 transition">
+          ← Cancel
         </a>
       </div>
     </form>
