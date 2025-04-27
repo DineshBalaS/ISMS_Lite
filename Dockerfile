@@ -12,7 +12,7 @@ RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 
 # Expose the port your app runs on
-EXPOSE 60
+EXPOSE 5000
     
 # Set environment variable to avoid bytecode files
 ENV PYTHONDONTWRITEBYTECODE=1
