@@ -1,11 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ISMS Lite - Home</title>
-</head>
-<body>
-    <h1>Welcome to ISMS Lite</h1>
-</body>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      .scrolling-images {
+        animation: scroll-left 30s linear infinite;
+      }
+
+      @keyframes scroll-left {
+        0% {
+          transform: translateX(100%);
+        }
+        100% {
+          transform: translateX(-100%);
+        }
+      }
+    </style>
+  </head>
+  <body
+    class="bg-[#0D1117] text-[#C9D1D9] min-h-screen flex flex-col items-center justify-between px-4 pt-20 pb-10"
+  >
+    <!-- Header Content -->
+    <div class="text-center max-w-2xl">
+      <h1 class="text-4xl sm:text-5xl font-bold mb-4">Welcome to ISMS Lite</h1>
+      <p class="text-lg sm:text-xl mb-6">
+        A minimal Information Security Management System to assess, mitigate and
+        manage risks effectively.
+      </p>
+
+      <!-- Buttons -->
+      <div class="flex justify-center space-x-4">
+        <a
+          href="/login"
+          class="bg-[#238636] hover:bg-[#2ea043] text-white px-6 py-3 rounded-lg text-lg"
+          >Login</a
+        >
+        <a
+          href="/signup"
+          class="bg-[#30363D] hover:bg-[#484f58] text-white px-6 py-3 rounded-lg text-lg"
+          >Sign Up</a
+        >
+      </div>
+    </div>
+
+    <!-- Scrolling Image Reel -->
+    <div class="w-full overflow-hidden mt-12 mb-6">
+      <div class="flex space-x-6 scrolling-images w-max">
+        <img
+          src="{{ url_for('static', filename='images/cybersecurity-privacy-protect-data_723895-1657.jpg') }}"
+          class="h-52 rounded shadow-lg"
+          alt="Cybersecurity 1"
+        />
+        <img
+          src="{{ url_for('static', filename='images/security (5).jpg') }}"
+          class="h-52 rounded shadow-lg"
+          alt="Cybersecurity 2"
+        />
+        <img
+          src="{{ url_for('static', filename='images/security (6).jpg') }}"
+          class="h-52 shadow-lg"
+          alt="Cybersecurity 3"
+        />
+        <img
+          src="{{ url_for('static', filename='images/security (7).jpg') }}"
+          class="h-52 shadow-lg"
+          alt="Cybersecurity 4"
+        />
+        <img
+          src="{{ url_for('static', filename='images/security (1).jpg') }}"
+          class="h-52 shadow-lg"
+          alt="Cybersecurity 5"
+        />
+        <img
+          src="{{ url_for('static', filename='images/maintenance-engineers-in-server-room.jpg') }}"
+          class="h-52 shadow-lg"
+          alt="Cybersecurity 6"
+        />
+        <img
+          src="{{ url_for('static', filename='images/maintenance-engineers-in-server-room.jpg') }}"
+          class="h-52 shadow-lg"
+          alt="Cybersecurity 6"
+        />
+        <img
+          src="{{ url_for('static', filename='images/maintenance-engineers-in-server-room.jpg') }}"
+          class="h-52 shadow-lg"
+          alt="Cybersecurity 6"
+        />
+        <img
+          src="{{ url_for('static', filename='images/maintenance-engineers-in-server-room.jpg') }}"
+          class="h-52 shadow-lg"
+          alt="Cybersecurity 6"
+        />
+        <img
+          src="{{ url_for('static', filename='images/maintenance-engineers-in-server-room.jpg') }}"
+          class="h-52 shadow-lg"
+          alt="Cybersecurity 6"
+        />
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="text-sm text-gray-400">
+      © 2025 ISMS Lite |
+      <a
+        href="https://github.com/DineshBalaS"
+        class="hover:underline"
+        target="_blank"
+        >GitHub - DineshBalaS</a
+      >
+    </footer>
+  </body>
 </html>
