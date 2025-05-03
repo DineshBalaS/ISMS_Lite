@@ -6,16 +6,41 @@
     <title>ISMS Lite - Home</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-      .scrolling-images {
-        animation: scroll-left 30s linear infinite;
+      .scrolling-container {
+        overflow: hidden;
+        white-space: nowrap;
+        position: relative;
+      }
+
+      .scrolling-track {
+        display: inline-flex;
+        animation: scroll-left 10s linear infinite;
       }
 
       @keyframes scroll-left {
         0% {
-          transform: translateX(100%);
+          transform: translateX(0);
         }
         100% {
-          transform: translateX(-100%);
+          transform: translateX(-50%);
+        }
+      }
+
+      .animated-bg {
+        background: linear-gradient(-45deg, #0d1117, #161b22, #21262d, #0d1117);
+        background-size: 400% 400%;
+        animation: gradientAnimation 15s ease infinite;
+      }
+
+      @keyframes gradientAnimation {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
         }
       }
     </style>
@@ -47,58 +72,46 @@
     </div>
 
     <!-- Scrolling Image Reel -->
-    <div class="w-full overflow-hidden mt-12 mb-6">
-      <div class="flex space-x-6 scrolling-images w-max">
+    <div class="w-full py-12 animated-bg scrolling-container">
+      <div class="scrolling-track">
+        {% for i in range(2) %}
+        <!-- Duplicate the image set for seamless loop -->
         <img
           src="{{ url_for('static', filename='images/cybersecurity-privacy-protect-data_723895-1657.jpg') }}"
-          class="h-52 rounded shadow-lg"
+          class="h-52 rounded shadow-lg object-cover mx-3"
           alt="Cybersecurity 1"
         />
         <img
-          src="{{ url_for('static', filename='images/security (5).jpg') }}"
-          class="h-52 rounded shadow-lg"
+          src="{{ url_for('static', filename='images/security (1).jpg') }}"
+          class="h-52 shadow-lg mx-3"
           alt="Cybersecurity 2"
         />
         <img
-          src="{{ url_for('static', filename='images/security (6).jpg') }}"
-          class="h-52 shadow-lg"
+          src="{{ url_for('static', filename='images/security (5).jpg') }}"
+          class="h-52 shadow-lg mx-3"
           alt="Cybersecurity 3"
         />
         <img
-          src="{{ url_for('static', filename='images/security (7).jpg') }}"
-          class="h-52 shadow-lg"
+          src="{{ url_for('static', filename='images/security (6).jpg') }}"
+          class="h-52 shadow-lg mx-3"
           alt="Cybersecurity 4"
         />
         <img
-          src="{{ url_for('static', filename='images/security (1).jpg') }}"
-          class="h-52 shadow-lg"
+          src="{{ url_for('static', filename='images/security (7).jpg') }}"
+          class="h-52 shadow-lg mx-3"
           alt="Cybersecurity 5"
         />
         <img
-          src="{{ url_for('static', filename='images/maintenance-engineers-in-server-room.jpg') }}"
-          class="h-52 shadow-lg"
+          src="{{ url_for('static', filename='images/cysec.jpg') }}"
+          class="h-52 shadow-lg mx-3"
           alt="Cybersecurity 6"
         />
         <img
-          src="{{ url_for('static', filename='images/maintenance-engineers-in-server-room.jpg') }}"
-          class="h-52 shadow-lg"
-          alt="Cybersecurity 6"
+          src="{{ url_for('static', filename='images/techstuf.jpg') }}"
+          class="h-52 rounded shadow-lg object-cover mx-3"
+          alt="Cybersecurity 7"
         />
-        <img
-          src="{{ url_for('static', filename='images/maintenance-engineers-in-server-room.jpg') }}"
-          class="h-52 shadow-lg"
-          alt="Cybersecurity 6"
-        />
-        <img
-          src="{{ url_for('static', filename='images/maintenance-engineers-in-server-room.jpg') }}"
-          class="h-52 shadow-lg"
-          alt="Cybersecurity 6"
-        />
-        <img
-          src="{{ url_for('static', filename='images/maintenance-engineers-in-server-room.jpg') }}"
-          class="h-52 shadow-lg"
-          alt="Cybersecurity 6"
-        />
+        {% endfor %}
       </div>
     </div>
 
