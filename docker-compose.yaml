@@ -1,0 +1,11 @@
+version: "3.9"
+
+services:
+  flask-app:
+    build: .
+    ports:
+      - "5050:60"  # Maps host:container
+    environment:
+      - PYTHONDONTWRITEBYTECODE=1
+    volumes:
+      - .:/app
